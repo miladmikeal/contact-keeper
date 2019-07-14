@@ -17,18 +17,21 @@ const ContactState = props => {
       {
         id: 1,
         name: 'Jill Johnson',
+        email: 'johnson@gmail.com',
         phone: '111-111-1111',
         type: 'personal'
       },
       {
         id: 2,
         name: 'Sara Watson',
+        email: 'watson@gmail.com',
         phone: '222-222-2222',
         type: 'personal'
       },
       {
         id: 3,
         name: 'Harry White',
+        email: 'white@gmail.com',
         phone: '333-333-3333',
         type: 'professional'
       }
@@ -60,3 +63,5 @@ const ContactState = props => {
     </ContactContext.Provider>
   )
 }
+
+export default ContactState;

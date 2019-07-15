@@ -21,7 +21,7 @@ const AuthState = props => {
     loading: true,
     user: null,
     error: null
-  }
+  };
 
   const [state, dispatch] = useReducer(authReducer, initialState);
 
@@ -49,7 +49,7 @@ const AuthState = props => {
       headers: {
         'Content-Type': 'application/json'
       }
-    }
+    };
 
     try {
       const res = await axios.post('/api/users', formData, config);
@@ -61,19 +61,40 @@ const AuthState = props => {
 
       loadUser();
     } catch (err) {
-      console.log(err);
       dispatch({
         type: REGISTER_FAIL,
         payload: err.response.data.msg
-      })
+      });
     }
-  }
+  };
 
   // Login User
-  const loginUser = () => console.log('Login user');
+  const login = async formData => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    try {
+      const res = await axios.post('/api/auth', formData, config);
+
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: res.data
+      });
+
+      loadUser();
+    } catch (err) {
+      dispatch({
+        type: LOGIN_FAIL,
+        payload: err.response.data.msg
+      });
+    }
+  };
 
   // Logout
-  const logoutUser = () => console.log('Logout user');
+  const logout = () => dispatch({ type: LOGOUT });
 
   // Clear Errors
   const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
@@ -82,19 +103,20 @@ const AuthState = props => {
     <AuthContext.Provider
       value={{
         token: state.token,
-        isAuthenticated: state.tokisAuthenticateden,
+        isAuthenticated: state.isAuthenticated,
         loading: state.loading,
         user: state.user,
         error: state.error,
-        loadUser,
         register,
-        loginUser,
-        logoutUser,
+        loadUser,
+        login,
+        logout,
         clearErrors
-      }}>
+      }}
+    >
       {props.children}
     </AuthContext.Provider>
-  )
-}
+  );
+};
 
 export default AuthState;

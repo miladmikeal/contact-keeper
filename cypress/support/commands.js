@@ -10,8 +10,12 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add("login", (email, password) => { ... })
-//
+Cypress.Commands.add('login', (email, password) => {
+  cy.get('[data-testid=login-email]').type('jin@mail.com')
+  cy.get('[data-testid=login-password]').type('Red1234!')
+  cy.get('[data-testid=login-form]').submit()
+})
+
 //
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })

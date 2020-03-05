@@ -1,0 +1,44 @@
+[
+  {
+    "_id": "5d2d24cd78bb096b026eef53",
+    "name": "Jin Jin",
+    "email": "jin@mail.com",
+    "phone": "777-888-5111",
+    "password": "Red1234!"
+  },
+  {
+    "_id": "5d2d24cd78bb096b026eef51",
+    "name": "Henry Smith",
+    "email": "smith@mail.com",
+    "phone": "777-888-5111",
+    "password": "Red1234!"
+  },
+  {
+    "_id": "5d2d27cc2a30756c97f70235",
+    "name": "Ben",
+    "email": "ben@mail.com",
+    "phone": "777-777-7777",
+    "password": "Red1234!"
+  },
+  {
+    "_id": "5d2d37bfee7dcc6f2e5e0ed2",
+    "name": "Jenny",
+    "email": "jenny@mail.com",
+    "phone": "512-985-0000",
+    "password": "Red1234!"
+  },
+  {
+    "_id": "5d2d37ecee7dcc6f2e5e0ed4",
+    "name": "Bob",
+    "email": "bob@mail.com",
+    "phone": "111-111-1111",
+    "password": "Red1234!"
+  },
+  {
+    "_id": "5d32adb84bf37b00173cd155",
+    "name": "Michael Jordan",
+    "email": "jordan@mail.com",
+    "phone": "444-444-4444",
+    "password": "Red1234!"
+  }
+]

@@ -7,8 +7,12 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
-    "clientinstall": "npm isntall --prefix client",
+    "clientinstall": "npm install --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "cypress:open": "cypress open",
+    "seed:testdb": "node seeder.js -i",
+    "clear:testdb": "node seeder.js -d",
+    "reseed:testdb": "node seeder.js -d && node seeder.js -i",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
@@ -24,6 +28,7 @@
     "mongoose": "^5.6.3"
   },
   "devDependencies": {
+    "colors": "^1.4.0",
     "concurrently": "^4.1.1",
     "cypress": "^4.1.0",
     "nodemon": "^1.19.1"

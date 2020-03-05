@@ -9,7 +9,7 @@
     "client": "npm start --prefix client",
     "clientinstall": "npm install --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "cypress:open": "cypress open",
+    "cy:open": "cypress open",
     "seed:testdb": "node seeder.js -i",
     "clear:testdb": "node seeder.js -d",
     "reseed:testdb": "node seeder.js -d && node seeder.js -i",

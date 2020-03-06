@@ -1,0 +1,30 @@
+language: node_js
+node_js:
+- 10.8
+addons:
+  apt:
+    packages:
+    - libgconf-2-4
+cache:
+  directories:
+  - "~/.npm"
+  - "~/.cache"
+  override:
+  - npm ci
+  - npm run cy:verify
+  - npm run cy:info
+before-install:
+- cd client && npm i && cd ..
+install:
+- npm i
+script:
+- npm run dev & wait-on http://localhost:3000
+- npm run cy:run
+- kill $(jobs -p) || true
+deploy:
+  provider: heroku
+  api_key:
+    secure: OrhBVmt6Ws4oy+/mVcDcVKIU1Rz9vMWsVd0gZynlUSQ7o+Pf1u1XHyJ7xm1GFMDBfxKxTbxC6TtAtRuTPNrJMBL0ldbQDi0Yl4XDYrxrWvSjcCfoylYWQEbZMPl8Dl9/gcsEYqEGXrQUelLsqS/dBiodUs/jIu0g31kHRMVuZKEN8tl/44ubRL62YZIPQduDx+zTPGxwYHoxwp7PrqWCUD5ZovHeaXCfchBI3lsZZ7W4ljNzrZkbxGn2PxzWi5Fb3kcr26VCG8UKff6iQ+91aEUdGAf3kRiCgLQJSZBfG+4/MaIhm+2S93CzCLGW/l1wEQ0O0B27hJaCRVc9hDmXrKnSlj6Y3GnwRRpQkHxT3RQxaOd5nG5l2PWPEfJU4Pgs9WscLIf7jtj3IhSofbdAKRSzZDsh0Wy1+kbGKI2J5RKbK8zs0jDN7I4prgEd1UIzNTnqS0vlzvPahb8y2Oh4jlnHlo+9G/wknSsNpLXpgeWQu6q8tMresOAz8hPwauKTJMnS3tYqBAnAAWDHHnlGg5HJ1UTQT0klRi2mF1uR4b9m+ifaU8yg4CKwxQZJu0R5vaH6qJsFpQvBfoRt/Lmb3ZwiJvJQ+HA6AE0e2Mh28743Sh8m2lKPuX0kwWC9F9Ffr08rq2EuYdIb94T3su0XBw/FDJarKpYQP6WfIGxxCss=
+  app: mikeal-contact-keeper
+  on:
+    repo: miladmikeal/contact-keeper

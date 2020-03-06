@@ -19,6 +19,7 @@ before-install:
 install:
   - npm i
 script:
-  #   ## print all Travis environment variables for debugging
-  - npm run test
+  - npm run server
+  - npm run client
+  - npm run cy:run
   - kill $(jobs -p) || true

@@ -20,8 +20,6 @@ install:
   - npm i
 
 script:
-  #   ## print all Travis environment variables for debugging
-  - $(npm bin)/print-env TRAVIS
   - npm run dev & wait-on http://localhost:3000
   - npm run cy:run
   # after all tests finish running we need

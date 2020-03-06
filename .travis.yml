@@ -22,7 +22,7 @@ defaults: &defaults
   script:
     #   ## print all Travis environment variables for debugging
     - $(npm bin)/print-env TRAVIS
-    - npm run dev & wait-on http://localhost:8080
+    - npm run dev & wait-on http://localhost:3000
     - npm run cy:run -- --record --parallel --group $STAGE_NAME
     # after all tests finish running we need
     # to kill all background jobs (like "npm start &")

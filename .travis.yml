@@ -18,10 +18,12 @@ before-install:
   - cd client && npm i && cd ..
 install:
   - npm i
-
 script:
   - npm run dev & wait-on http://localhost:3000
   - npm run cy:run
   # after all tests finish running we need
   # to kill all background jobs (like "npm start &")
   - kill $(jobs -p) || true
+deploy:
+  provider: heroku
+  app: mikeal-contact-keeper

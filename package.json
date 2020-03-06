@@ -9,7 +9,7 @@
     "client": "npm start --prefix client",
     "clientinstall": "npm install --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "test": "start-server-and-test dev http://lcalhost:3000 cy:run",
+    "test": "start-server-and-test dev http://lcalhost:3000 cy:run --env TEST_DB=$TEST_DB,JWT_SECRET=$JWT_SECRET",
     "cy:open": "cypress open",
     "cy:verify": "cypress verify",
     "cy:info": "cypress info",

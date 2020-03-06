@@ -12,7 +12,6 @@ cache:
     - ~/.cache
   override:
     - npm ci
-    - npm ci --prefix client
     - npm run cy:verify
     - npm run cy:info
 defaults: &defaults

@@ -17,6 +17,7 @@ cache:
 defaults: &defaults
   script:
     #   ## print all Travis environment variables for debugging
+    - npm run dev
     - $(npm bin)/print-env TRAVIS
     - npm run start:ci &
     - npm run cy:run -- --record --parallel --group $STAGE_NAME

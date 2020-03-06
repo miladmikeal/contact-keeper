@@ -1,28 +1,30 @@
 language: node_js
 node_js:
-  - 10.8
+- 10.8
 addons:
   apt:
     packages:
-      - libgconf-2-4
+    - libgconf-2-4
 cache:
   directories:
-    - '~/.npm'
-    - '~/.cache'
+  - "~/.npm"
+  - "~/.cache"
   override:
-    - npm ci
-    - npm run cy:verify
-    - npm run cy:info
+  - npm ci
+  - npm run cy:verify
+  - npm run cy:info
 before-install:
-  - cd client && npm i && cd ..
+- cd client && npm i && cd ..
 install:
-  - npm i
+- npm i
 script:
-  - npm run dev & wait-on http://localhost:3000
-  - npm run cy:run
-  - kill $(jobs -p) || true
+- npm run dev & wait-on http://localhost:3000
+- npm run cy:run
+- kill $(jobs -p) || true
 deploy:
   provider: heroku
-  app: mikeal-contact-keeper
   api_key:
-    secure: UHHNqjzuit81zawoASc8Z8buliVxQJlwFRCoX5kRL52WwjaXX24j8tcJGa5Wy0hIPaJUDmis5UN2AGcJqExajBI6qQAxmqpKu7XLAnrFNDChGHdRvDeiE4vMnFlq+WOY3s8xwrcL7n/s93kMFuG+cM2d8SAQxpP0x120zBiZzBkNpJIO+YgVX0r8lg4IeBGSErjTwrT/PStACSiH3zXCVjP3JeqDaFoa2MZzcsAbSehGr7RErFeITChVLadbTwvFfVHKm4YJ0d9F1Zu4x9wNscBgXmNsvbFENg1HXZUjTk3VFmjclajeIx0X282itM9E7hijU5TWmK1hPNo72rcxFFrIUwSInpKmAen4ppw+sehh4NHR5367GHMuyGjglhA7kyvb+HabCP0QIC8NgUeHPUoXmUlqUTzhlSWmKxcy/a7O6hexvbBhV7KfYvyhuNFinzUXhy1c43H44JTHXeedUDblcLNnCHZzMizVog09cmtLvLC03k1/CPhHSGKXgEdnUMTGYeHsNHrTpM8DpgqJb8U1k5nX51EeMefe7z6zE7Zm0bxHCRLYlalnyZS8chI1sHFpjcnPByi9+GwUv4JyMz5VSPuT225C6zov/29XuF8IocFlAn9mEp3wd6ghMsC0dKOK+dnyqn3HLb7AMZSRLrtOVIB+fefWnkonW7px5VY=
+    secure: a28OVmHxwCW5x03XlQVJBpaZxNgSrYOKh4lumvAVfLHKZ/8qN9ZkHQpVMzDTboPCJ7fOmmaOdHpvRBQ1mW8aTllsgbQiH7Q9II9JMqq5ChSbvpOjskDsmTS54xJTqpetrKfYMr+ySzIV5gSdQyhNmykIaPTqkJy2hWb0v67E+iOYPknVpFlXetbJRmZTNzRMuiHO0M57ltQarvrg7VeRZHN9PnEtxoxHFXFO8x5GfHGstZkIZO8gX1mbH5J4wnjnGDjP9jFbzzkMDVBrAQvHZPUx/4+s8FB/6XkcDV7UKUzTkLxDxMOL72KpSsByp5ctVL0eDPnfkRpAjAo1a7+OKghnQRxr5/SMgyse9O/MI9kia7Agnp6XmjED7zS2YHNrAw+1V3Q6SiP4+4hedt14QYh0G+9An2k7fdI0yt8ar9FlCNsjQOOlE9Ou0mO3oPhoiwt9uvdzvzIJkGPMj0aUz+u0OCpzuRDRvhWQyc94S/eQt3IxZJynj5xvo4enPqBmDJ+dgTCGLCGo9L36du/vfFwaCJW2gLu2qhdU1BvPx6aPZbUGdw5UkiD8CdF9gvPCNbHpf6zX/IFwAZJI0iJLH3FHgKgqb60YS2ryG5bsSSK5beH+rnDuFXY9tIKIxw33cbbO2Wbgdh5Vcgpe4y8zM0tD7lgLuKSLQtOd/aYzi7A=
+  app: mikeal-contact-keeper
+  on:
+    repo: miladmikeal/contact-keeper

@@ -9,7 +9,7 @@
     "client": "npm start --prefix client",
     "clientinstall": "npm install --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "test": "npm run cy:run",
+    "test": "start-server-and-test dev 8080 cy:run",
     "cy:open": "cypress open",
     "cy:verify": "cypress verify",
     "cy:info": "cypress info",
@@ -29,12 +29,14 @@
     "express": "^4.17.1",
     "express-validator": "^6.1.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.6.3"
+    "mongoose": "^5.6.3",
+    "wait-on": "^4.0.1"
   },
   "devDependencies": {
     "colors": "^1.4.0",
     "concurrently": "^4.1.1",
     "cypress": "^4.1.0",
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "start-server-and-test": "^1.10.8"
   }
 }

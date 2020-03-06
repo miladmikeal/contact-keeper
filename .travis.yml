@@ -6,10 +6,9 @@ addons:
     packages:
       - libgconf-2-4
 cache:
-  # cache both npm modules and Cypress binary
   directories:
-    - ~/.npm
-    - ~/.cache
+    - '~/.npm'
+    - '~/.cache'
   override:
     - npm ci
     - npm run cy:verify
@@ -21,9 +20,9 @@ install:
 script:
   - npm run dev & wait-on http://localhost:3000
   - npm run cy:run
-  # after all tests finish running we need
-  # to kill all background jobs (like "npm start &")
   - kill $(jobs -p) || true
 deploy:
   provider: heroku
   app: mikeal-contact-keeper
+  api_key:
+    secure: mu5F7eyImybdiscl8IFoN6mZ68xqMlfQAtJt6mnwqRpsajn9DldSbgjLeDwIzSzwwQh0E84QPZRvfDSYHyJ8WJ5htNBtJdIFwzM4RpYHdcluARsv5aVyJnj4PKVTpApGcwtTIcRkvRhdYuRiVW7K5SItUxhEV9CW7VzefAYXx4D5lB2OsAuKrdtSI/G2sCDq6ksnWDdiCP/9Om7LQXOdMs9tLaSCMoVzm4YG5UrFyZ3prZR6lr7ReAK0X5gh0OZa+IPHaeiPP+xXjn/OLmMy0FiRL+WVmKYITS2aYHp6/3mB5TbToBGuNYADiGA1P5VpGAikeGuILha0fIoUtCpnWt82xFBOc8xtmpc+tcacQt87eOkvLtIEGLscO4bZ6QXRKGLYAKTv+ddmG2KUxCuHDkUoLgY1eq3nWGJtFCtD292Zm/YTAFJkBeRhaGskEdPnbbal0baIRH3Y/ndOClOdl4essDfCFU1Ebna2SqSsRARyYQ1VHAcMclZGxrunR2c93tbDDSGSt/0OanRXQt57pzlJOLqIT3XO3HKtRegcbAGMXj0BTQk+rK8r6Ee1Qg9NP6WJfIQ2upSpHasEBSPT/z1I+luTB8BIgSC7UWVu6xIin7kjzUstNm50KVVaud+IvIVj9UVq16c73RHQdLZ/YMdYStPoEWnl8oozr93lSjY=

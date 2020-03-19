@@ -10,9 +10,9 @@ services:
 cache:
   npm: true
   directories:
-    - '~/.npm'
-    - './node_modules'
-    - '~/.cache'
+    - ~/.npm
+    - ./node_modules
+    - ~/.cache
   override:
     - npm ci
     - npm run cy:verify

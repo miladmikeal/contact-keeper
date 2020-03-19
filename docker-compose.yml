@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  client:
+    build:
+      context: ./client
+    ports:
+      - '3006:3006'
+    depends_on:
+      - server
+    networks:
+      - contact-keeper
+  server:
+    build:
+      context: .
+    ports:
+      - '5000:5000'
+    networks:
+      - contact-keeper
+
+networks:
+  contact-keeper:

@@ -1,26 +1,26 @@
 language: node_js
 node_js:
-- 10.8
+  - 10.8
 addons:
   apt:
     packages:
-    - libgconf-2-4
+      - libgconf-2-4
 cache:
   directories:
-  - "~/.npm"
-  - "~/.cache"
+    - '~/.npm'
+    - '~/.cache'
   override:
-  - npm ci
-  - npm run cy:verify
-  - npm run cy:info
+    - npm ci
+    - npm run cy:verify
+    - npm run cy:info
 before-install:
-- cd client && npm i && cd ..
+  - cd client && npm i && cd ..
 install:
-- npm i
+  - npm i
 script:
-- npm run dev & wait-on http://localhost:3000
-- npm run cy:run
-- kill $(jobs -p) || true
+  - npm run dev & wait-on http://localhost:3006
+  - npm run cy:run
+  - kill $(jobs -p) || true
 deploy:
   provider: heroku
   api_key:

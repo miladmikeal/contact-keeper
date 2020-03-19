@@ -6,8 +6,10 @@ addons:
     packages:
       - libgconf-2-4
 cache:
+  npm: true
   directories:
     - '~/.npm'
+    - './node_modules'
     - '~/.cache'
   override:
     - npm ci
@@ -16,7 +18,7 @@ cache:
 before-install:
   - cd client && npm i && cd ..
 install:
-  - npm i
+  - npm ci
 script:
   - npm run dev & wait-on http://localhost:3006
   - npm run cy:run

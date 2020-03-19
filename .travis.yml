@@ -5,6 +5,8 @@ addons:
   apt:
     packages:
       - libgconf-2-4
+services:
+  - docker
 cache:
   npm: true
   directories:
@@ -19,8 +21,10 @@ before-install:
   - cd client && npm i && cd ..
 install:
   - npm ci
+before_script:
+  - docker-compose build
 script:
-  - npm run dev & wait-on http://localhost:3006
+  - docker-compose up & wait-on http://localhost:3006
   - npm run cy:run
   - kill $(jobs -p) || true
 deploy:

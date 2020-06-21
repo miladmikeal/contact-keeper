@@ -8,19 +8,14 @@ services:
       - '3006:3006'
     depends_on:
       - server
-    networks:
-      - contact-keeper
   server:
     build:
       context: .
     ports:
       - '5000:5000'
-    networks:
-      - contact-keeper
     environment:
       - DB=$DB
       - TEST_DB=$TEST_DB
       - JWT_SECRET=$JWT_SECRET
 
-networks:
-  contact-keeper:
+
